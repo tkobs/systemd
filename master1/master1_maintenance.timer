@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer for Master1 Maintenance 
+
+[Timer]
+OnCalendar=*-*-* 02:30:00
+RemainAfterElapse=yes
+Unit=master1_maintenance.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Neo HC-SR501 PIR Sensor Service
+After=network.target mariadb.service
+Requires=mariadb.service
+
+[Service]
+User=ava
+WorkingDirectory=/home/ava/code/
+ExecStart=/home/ava/.virtualenvs/master_venv/bin/python /home/ava/code/hc_sr501_PIR_Sensor.py
+EnvironmentFile=/home/ava/.my_db_credentials_for_systemd
+StandardOutput=append:/home/ava/code/cron_log/hc_sr501_pir_sensor.log
+StandardError=append:/home/ava/code/cron_log/hc_sr501_pir_sensor.log
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=MQTT Camera Listener
+After=network.target mosquitto.service
+StartLimitIntervalSec=0
+
+[Service]
+User=ava
+ExecStart=/home/ava/.virtualenvs/master_venv/bin/python /home/ava/code/mqtt_cam_listener.py
+WorkingDirectory=/home/ava/code/
+StandardOutput=append:/home/ava/code/log/mqtt_cam_listener.log
+StandardError=append:/home/ava/code/log/mqtt_cam_listener.log
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Neo 6M GPS Data Collection Service
+After=network.target
+
+[Service]
+User=ava
+WorkingDirectory=/home/ava/code/
+ExecStart=/home/ava/.virtualenvs/master_venv/bin/python /home/ava/code/neo_6m_gps_modul_Variante.py
+EnvironmentFile=/home/ava/.my_db_credentials_for_systemd
+StandardOutput=append:/home/ava/code/cron_log/neo_6m_cron.log
+StandardError=append:/home/ava/code/cron_log/neo_6m_cron.log
+
+[Install]
+WantedBy=multi-user.target

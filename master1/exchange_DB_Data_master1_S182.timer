@@ -1,0 +1,11 @@
+[Unit]
+Description=Timer for Master1 Maintenance 
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=3min
+RemainAfterElapse=yes
+Unit=exchange_DB_Data_master1_S182.service
+
+[Install]
+WantedBy=timers.target

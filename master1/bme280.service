@@ -1,0 +1,14 @@
+[Unit]
+Description=BME280 Data Collection Service
+After=network.target
+
+[Service]
+User=ava
+WorkingDirectory=/home/ava/code/
+ExecStart=/home/ava/.virtualenvs/master_venv/bin/python /home/ava/code/bme280_temperature-and-pressure.py
+EnvironmentFile=/home/ava/.my_db_credentials_for_systemd
+StandardOutput=append:/home/ava/code/cron_log/bme280_cron.log
+StandardError=append:/home/ava/code/cron_log/bme280_cron.log
+
+[Install]
+WantedBy=multi-user.target

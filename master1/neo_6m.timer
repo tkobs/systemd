@@ -1,0 +1,11 @@
+[Unit]
+Description=Timer for Neo 6M GPS Data Collection
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=5min
+RemainAfterElapse=yes
+Unit=neo_6m.service
+
+[Install]
+WantedBy=timers.target

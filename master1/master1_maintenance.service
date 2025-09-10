@@ -1,0 +1,15 @@
+[Unit]
+Description=master1_maintenance - data usage for db and wlan
+After=network.target
+
+[Service]
+User=ava
+WorkingDirectory=/home/ava/code/
+ExecStart=/home/ava/.virtualenvs/master_venv/bin/python /home/ava/code/master1_gather_and_send_information.py
+EnvironmentFile=/home/ava/.my_db_credentials_for_systemd
+EnvironmentFile=/home/ava/.my_mail_credentials_for_systemd
+StandardOutput=append:/home/ava/code/cron_log/master1_maintenance.log
+StandardError=append:/home/ava/code/cron_log/master1_maintenance.log
+
+[Install]
+WantedBy=multi-user.target

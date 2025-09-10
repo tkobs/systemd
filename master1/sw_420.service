@@ -1,0 +1,13 @@
+[Unit]
+Description=Startup Script for the sw-420 sensor
+After=network.target
+
+[Service]
+WorkingDirectory=/home/ava/code
+EnvironmentFile=/home/ava/.my_db_credentials_for_systemd
+ExecStart=/home/ava/.virtualenvs/master_venv/bin/python /home/ava/code/raspberry_sw_420_vibration.py
+User=ava
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

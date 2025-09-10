@@ -1,0 +1,14 @@
+[Unit]
+Description= MQ135 Gas Sensor 
+After=network.target
+
+[Service]
+User=ava
+WorkingDirectory=/home/ava/code/
+ExecStart=/home/ava/.virtualenvs/master_venv/bin/python /home/ava/code/mq135_gassensor.py
+EnvironmentFile=/home/ava/.my_db_credentials_for_systemd
+StandardOutput=append:/home/ava/code/cron_log/mq_135_gas_sensor.log
+StandardError=append:/home/ava/code/cron_log/mq_135_gas_sensor.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Timer for BME280 Data Collection
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=5min
+RemainAfterElapse=yes
+Unit=bme280.service
+
+[Install]
+WantedBy=timers.target
