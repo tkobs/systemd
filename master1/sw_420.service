@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 WorkingDirectory=/home/ava/code
-EnvironmentFile=/home/ava/.my_db_credentials_for_systemd
-ExecStart=/home/ava/.virtualenvs/master_venv/bin/python /home/ava/code/raspberry_sw_420_vibration.py
+EnvironmentFile=/home/ava/.my_db_credentials_for_systemd # to do: löschen, ist jetzt in .env file!
+ExecStart=/home/ava/.virtualenvs/master_venv/bin/python /home/ava/code/raspberry_sw_420_vibration.py # shebang in py file wurde geändert - passt der Aufruf noch?
 User=ava
 Restart=always
 
